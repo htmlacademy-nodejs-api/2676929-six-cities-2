@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
-import { CLIApplication } from "./cli/cli-application.ts";
-import { HelpCommand } from "./cli/commands/help.command.ts";
-import { ImportCommand } from "./cli/commands/import.command.ts";
-import { VersionCommand } from "./cli/commands/version.command.ts";
+import {
+  CLIApplication,
+  HelpCommand,
+  ImportCommand,
+  VersionCommand,
+} from "./cli/index.ts";
 
 function bootstrap() {
   const cliApplication = new CLIApplication();

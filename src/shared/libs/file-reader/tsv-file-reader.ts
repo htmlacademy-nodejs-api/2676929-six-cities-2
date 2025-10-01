@@ -1,9 +1,6 @@
 import { readFileSync } from "node:fs";
-import { IFileReader } from "./file-reader.interface.ts";
-import { IOffer } from "../../types/offer.type.ts";
-import { IOfferType } from "../../types/offer-type.enum.ts";
-import { Facilities } from "../../types/facilities.enum.ts";
-import { TUserType } from "../../types/user.type.ts";
+import { IFileReader } from "./index.ts";
+import { TUserType, Facilities, IOffer, IOfferType,  } from "../../types/index.ts";
 
 export class TSVFileReader implements IFileReader {
   private rawData: string = "";

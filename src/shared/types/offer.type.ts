@@ -7,18 +7,18 @@ export interface IOffer {
   title: string;
   description: string;
   postDate: Date;
-  city: string
+  city: string;
   previewImageLink: string;
   offerImages: string[];
   isPremium: boolean;
   isFavorite: boolean;
   rating: number;
-  type: OfferType
+  type: OfferType;
   roomsAmount: number;
   guestsAmount: number;
   price: number;
-  facilities: Facilities[]
-  author: IUser
+  facilities: Facilities[];
+  author: IUser;
   commentsLength: number;
-  coordinates: ICoordinates
+  coordinates: ICoordinates;
 }

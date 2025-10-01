@@ -1,4 +1,4 @@
-export enum OfferType {
+export enum IOfferType {
   APARTMENT = "apartment",
   HOUSE = "house",
   ROOM = "room",

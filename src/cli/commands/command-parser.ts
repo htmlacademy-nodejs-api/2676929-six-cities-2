@@ -1,6 +1,6 @@
 type TParsedCommand = Record<string, string[]>;
 
-export class CommandParse {
+export class CommandParser {
   static parse(cliArguments: string[]): TParsedCommand {
     const parsedCommand: TParsedCommand = {};
     let currentCommand = "";

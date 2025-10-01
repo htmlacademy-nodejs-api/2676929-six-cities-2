@@ -1,4 +1,4 @@
-export interface command {
+export interface ICommand {
   getName(): string
   execute(...parameters: string[]): void
 }

@@ -1,9 +1,9 @@
-import { TSVFileReader } from "../../shared/libs/file-reader/tsv-file-reader.js";
-import { ICommand } from "./command.interface.js";
+import { TSVFileReader } from '../../shared/libs/file-reader/tsv-file-reader.js';
+import { ICommand } from './command.interface.js';
 
 export class ImportCommand implements ICommand {
   public getName(): string {
-    return "--import";
+    return '--import';
   }
 
   public execute(...parameters: string[]): void {

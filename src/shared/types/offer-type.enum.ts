@@ -1,1 +1,1 @@
-export type IOfferType = 'apartment' | 'house' | 'room' | 'hotel'
+export type IOfferType = 'apartment' | 'house' | 'room' | 'hotel';

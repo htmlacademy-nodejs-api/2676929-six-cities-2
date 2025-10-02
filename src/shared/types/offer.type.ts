@@ -1,7 +1,7 @@
-import { ICoordinates } from "./coordinates.type.js";
-import { Facilities } from "./facilities.enum.js";
-import { IOfferType } from "./offer-type.enum.js";
-import { IUser } from "./user.type.js";
+import { ICoordinates } from './coordinates.type.js';
+import { Facilities } from './facilities.enum.js';
+import { IOfferType } from './offer-type.enum.js';
+import { IUser } from './user.type.js';
 
 export interface IOffer {
   title: string;

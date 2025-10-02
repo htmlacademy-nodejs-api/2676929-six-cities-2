@@ -1,4 +1,4 @@
-export type TUserType = "default" | "pro";
+export type TUserType = 'default' | 'pro';
 
 export interface IUser {
   name: string;

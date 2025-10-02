@@ -1,7 +1,7 @@
-import { readFileSync } from "node:fs";
-import { ICommand } from "./command.interface.js";
-import { resolve } from "node:path";
-import chalk from "chalk";
+import { readFileSync } from 'node:fs';
+import { ICommand } from './command.interface.js';
+import { resolve } from 'node:path';
+import chalk from 'chalk';
 
 interface IPackageJSONConfig {
   version: string;
@@ -9,29 +9,29 @@ interface IPackageJSONConfig {
 
 function isPackageJSONConfig(value: unknown): value is IPackageJSONConfig {
   return (
-    typeof value === "object" &&
+    typeof value === 'object' &&
     value !== null &&
     !Array.isArray(value) &&
-    Object.hasOwn(value, "version")
+    Object.hasOwn(value, 'version')
   );
 }
 
 export class VersionCommand implements ICommand {
-  constructor(private readonly filePath: string = "./package.json") {}
+  constructor(private readonly filePath: string = './package.json') {}
 
   private readVersion(): string {
-    const jsonContent = readFileSync(resolve(this.filePath), "utf-8");
+    const jsonContent = readFileSync(resolve(this.filePath), 'utf-8');
     const importedContent: unknown = JSON.parse(jsonContent);
 
     if (!isPackageJSONConfig(importedContent)) {
-      throw new Error("Failed to parse json content");
+      throw new Error('Failed to parse json content');
     }
 
     return importedContent.version;
   }
 
   public getName(): string {
-    return "--version";
+    return '--version';
   }
 
   public async execute(..._parameters: string[]): Promise<void> {

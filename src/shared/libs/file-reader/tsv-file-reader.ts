@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
-import { IFileReader } from "./index.ts";
-import { TUserType, Facilities, IOffer, IOfferType,  } from "../../types/index.ts";
+import { IFileReader } from "./index.js";
+import { TUserType, Facilities, IOffer, IOfferType } from "../../types/index.js";
 
 export class TSVFileReader implements IFileReader {
   private rawData: string = "";
@@ -49,7 +49,7 @@ export class TSVFileReader implements IFileReader {
           isPremium: isPremium === "true" ? true : false,
           isFavorite: isFavorite === "true" ? true : false,
           rating: parseInt(rating),
-          type: IOfferType[type as "HOUSE" | "APARTMENT" | "ROOM" | "HOTEL"],
+          type: type as IOfferType,
           roomsAmount: parseInt(roomsAmount),
           guestsAmount: parseInt(guestsAmount),
           price: parseInt(price),
@@ -63,8 +63,8 @@ export class TSVFileReader implements IFileReader {
           },
           commentsLength: parseInt(commentsLength),
           coordinates: {
-            latitude: parseInt(coordinates.split(";")[0]),
-            longitude: parseInt(coordinates.split(";")[1]),
+            latitude: parseFloat(coordinates.split(";")[0]),
+            longitude: parseFloat(coordinates.split(";")[1]),
           },
         })
       );

@@ -1,5 +1,5 @@
-import { CommandParser } from "./commands/command-parser.ts";
-import { ICommand } from "./commands/command.interface.ts";
+import { CommandParser } from "./commands/command-parser.js";
+import { ICommand } from "./commands/command.interface.js";
 
 type CommandCollection = Record<string, ICommand>;
 
@@ -10,9 +10,7 @@ export class CLIApplication {
 
   public registerCommands(commandList: ICommand[]): void {
     commandList.forEach((command) => {
-      if (Object.hasOwn(this.commands, command.getName())) {
-        this.commands[command.getName()] = command;
-      }
+      this.commands[command.getName()] = command;
     });
   }
 

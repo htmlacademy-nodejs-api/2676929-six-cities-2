@@ -5,7 +5,7 @@ import {
   HelpCommand,
   ImportCommand,
   VersionCommand,
-} from "./cli/index.ts";
+} from "./cli/index.js";
 
 function bootstrap() {
   const cliApplication = new CLIApplication();

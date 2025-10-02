@@ -1,5 +1,5 @@
-import { TSVFileReader } from "../../shared/libs/file-reader/tsv-file-reader.ts";
-import { ICommand } from "./command.interface.ts";
+import { TSVFileReader } from "../../shared/libs/file-reader/tsv-file-reader.js";
+import { ICommand } from "./command.interface.js";
 
 export class ImportCommand implements ICommand {
   public getName(): string {

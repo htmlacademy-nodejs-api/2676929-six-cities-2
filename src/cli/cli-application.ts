@@ -8,8 +8,8 @@ export class CLIApplication {
 
   constructor(private readonly defaultCommand: string = '--help') {}
 
-  public registerCommands(commandList: ICommand[]): void {
-    commandList.forEach((command) => {
+  public registerCommands(commands: ICommand[]): void {
+    commands.forEach((command) => {
       this.commands[command.getName()] = command;
     });
   }

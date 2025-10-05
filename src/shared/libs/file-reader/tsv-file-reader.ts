@@ -7,6 +7,23 @@ import {
   IOfferType,
 } from '../../types/index.js';
 
+const parseAuthor = (author: string) => {
+  return {
+    name: author.split(';')[0],
+    email: author.split(';')[1],
+    profileImage: author.split(';')[2],
+    password: author.split(';')[3],
+    type: author.split(';')[4] as TUserType,
+  };
+}
+
+const parseCoordinates = (coordinates: string) => {
+  return {
+    latitude: parseFloat(coordinates.split(';')[0]),
+    longitude: parseFloat(coordinates.split(';')[1]),
+  };
+}
+
 export class TSVFileReader implements IFileReader {
   private rawData: string = '';
 
@@ -59,18 +76,9 @@ export class TSVFileReader implements IFileReader {
           guestsAmount: parseInt(guestsAmount, 10),
           price: parseInt(price, 10),
           facilities: facilities.split(';') as Facilities[],
-          author: {
-            name: author.split(';')[0],
-            email: author.split(';')[1],
-            profileImage: author.split(';')[2],
-            password: author.split(';')[3],
-            type: author.split(';')[4] as TUserType,
-          },
+          author: parseAuthor(author),
           commentsLength: parseInt(commentsLength, 10),
-          coordinates: {
-            latitude: parseFloat(coordinates.split(';')[0]),
-            longitude: parseFloat(coordinates.split(';')[1]),
-          },
+          coordinates: parseCoordinates(coordinates),
         })
       );
   }

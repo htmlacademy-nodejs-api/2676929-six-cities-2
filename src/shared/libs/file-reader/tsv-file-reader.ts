@@ -7,22 +7,18 @@ import {
   IOfferType,
 } from '../../types/index.js';
 
-const parseAuthor = (author: string) => {
-  return {
-    name: author.split(';')[0],
-    email: author.split(';')[1],
-    profileImage: author.split(';')[2],
-    password: author.split(';')[3],
-    type: author.split(';')[4] as TUserType,
-  };
-}
+const parseAuthor = (author: string) => ({
+  name: author.split(';')[0],
+  email: author.split(';')[1],
+  profileImage: author.split(';')[2],
+  password: author.split(';')[3],
+  type: author.split(';')[4] as TUserType,
+});
 
-const parseCoordinates = (coordinates: string) => {
-  return {
-    latitude: parseFloat(coordinates.split(';')[0]),
-    longitude: parseFloat(coordinates.split(';')[1]),
-  };
-}
+const parseCoordinates = (coordinates: string) => ({
+  latitude: parseFloat(coordinates.split(';')[0]),
+  longitude: parseFloat(coordinates.split(';')[1]),
+});
 
 export class TSVFileReader implements IFileReader {
   private rawData: string = '';

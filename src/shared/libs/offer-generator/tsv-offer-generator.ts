@@ -49,7 +49,7 @@ export class TSVOfferGenerator implements IOfferGenerator {
       Cities.HAMBURG,
       Cities.PARIS,
     ]);
-    const previewImageLink = getRandomItem<string>(this.mockData.profileImages);
+    const previewImageLink = getRandomItem<string>(this.mockData.offerImages);
     const offerImages = this.mockData.offerImages.join(';');
     const isPremium = Boolean(generateRandomValue(0, 1));
     const isFavorite = Boolean(generateRandomValue(0, 1));

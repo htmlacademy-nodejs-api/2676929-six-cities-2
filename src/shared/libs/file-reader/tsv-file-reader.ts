@@ -4,7 +4,7 @@ import {
   TUserType,
   Facilities,
   IOffer,
-  IOfferType,
+  EOfferType,
 } from '../../types/index.js';
 
 const parseAuthor = (author: string) => ({
@@ -67,7 +67,7 @@ export class TSVFileReader implements IFileReader {
           isPremium: isPremium === 'true',
           isFavorite: isFavorite === 'true',
           rating: parseInt(rating, 10),
-          type: type as IOfferType,
+          type: EOfferType[type as 'House' | 'Room' | 'Apartment' | 'Hotel'],
           roomsAmount: parseInt(roomsAmount, 10),
           guestsAmount: parseInt(guestsAmount, 10),
           price: parseInt(price, 10),

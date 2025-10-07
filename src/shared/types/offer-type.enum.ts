@@ -1,1 +1,6 @@
-export type IOfferType = 'apartment' | 'house' | 'room' | 'hotel';
+export enum EOfferType {
+  Apartment = 'Apartment',
+  House = 'House',
+  Room = 'Room',
+  Hotel = 'Hotel',
+}

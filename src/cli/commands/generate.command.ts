@@ -31,15 +31,15 @@ export class GenerateCommand implements ICommand {
 
   public async execute(...parameters: string[]): Promise<void> {
     const [count, filepath, url] = parameters;
-    const offerCount = Number.parseInt(count, 10)
+    const offerCount = Number.parseInt(count, 10);
 
     try {
-      await this.load(url)
-      await this.write(filepath, offerCount)
-      console.info(`File ${filepath} was created!`)
+      await this.load(url);
+      await this.write(filepath, offerCount);
+      console.info(`File ${filepath} was created!`);
     } catch (error: unknown) {
-      console.error('Cant generate data')
-      console.error(getErrorMessage(error))
+      console.error('Cant generate data');
+      console.error(getErrorMessage(error));
     }
   }
 }

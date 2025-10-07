@@ -13,9 +13,8 @@ import {
 } from '../../types/index.js';
 import { IOfferGenerator } from './offer-generator.interface.js';
 
-const parseCoordinatesToString = (coordinates: ICoordinates): string => {
-  return `${coordinates.latitude};${coordinates.longitude}`;
-};
+const parseCoordinatesToString = (coordinates: ICoordinates): string =>
+  `${coordinates.latitude};${coordinates.longitude}`;
 
 const MIN_PRICE = 100;
 const MAX_PRICE = 100_000;

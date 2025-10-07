@@ -1,6 +1,6 @@
 import { ICoordinates } from './coordinates.type.js';
 import { Facilities } from './facilities.enum.js';
-import { EOfferType } from './offer-type.enum.js';
+import { OfferType } from './offer-type.enum.js';
 import { IUser } from './user.type.js';
 
 export interface IOffer {
@@ -13,7 +13,7 @@ export interface IOffer {
   isPremium: boolean;
   isFavorite: boolean;
   rating: number;
-  type: EOfferType;
+  type: OfferType;
   roomsAmount: number;
   guestsAmount: number;
   price: number;

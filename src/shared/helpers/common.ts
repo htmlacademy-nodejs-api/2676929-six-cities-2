@@ -3,7 +3,7 @@ export function generateRandomValue(
   max: number,
   numAfterDigit = 0
 ) {
-  return +(Math.random() * (max - min) + min).toFixed(numAfterDigit);
+  return parseInt((Math.random() * (max - min) + min).toFixed(numAfterDigit), 10);
 }
 
 export function getRandomItems<T>(items: T[]): T[] {

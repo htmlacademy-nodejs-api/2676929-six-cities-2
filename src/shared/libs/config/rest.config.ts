@@ -13,7 +13,7 @@ export class RestConfig implements IConfig<RestSchema> {
     const parsedOutput = config();
 
     if (parsedOutput.error) {
-      throw new Error("Can't read .env file");
+      throw new Error('Can`t read .env file');
     }
 
     configRestSchema.load({});

@@ -74,7 +74,6 @@ export class TSVOfferGenerator implements IOfferGenerator {
     const name = getRandomItem<string>(this.mockData.names);
     const email = getRandomItem<string>(this.mockData.emails);
     const profileImage = getRandomItem<string>(this.mockData.profileImages);
-    const password = getRandomItem<string>(this.mockData.passwords);
     const userType = getRandomItem<string>(['default', 'pro']);
     const commentsLength = generateRandomValue(
       MIN_COMMENTS_LENGTH,
@@ -88,7 +87,7 @@ export class TSVOfferGenerator implements IOfferGenerator {
       .subtract(generateRandomValue(FIRST_WEEK_DAY, LAST_WEEK_DAY), 'day')
       .toISOString();
 
-    const author = `${name};${email};${profileImage};${password};${userType}`;
+    const author = `${name};${email};${profileImage};${userType}`;
 
     return [
       title,

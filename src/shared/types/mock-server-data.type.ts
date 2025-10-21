@@ -7,6 +7,5 @@ export interface IMockServerData {
   names: string[];
   emails: string[];
   profileImages: string[];
-  passwords: string[];
   coordinates: ICoordinates[];
 }

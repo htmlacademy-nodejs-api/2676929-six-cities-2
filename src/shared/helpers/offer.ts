@@ -4,8 +4,7 @@ const parseAuthor = (author: string) => ({
   name: author.split(';')[0],
   email: author.split(';')[1],
   profileImage: author.split(';')[2],
-  password: author.split(';')[3],
-  type: author.split(';')[4] as TUserType,
+  type: author.split(';')[3] as TUserType,
 });
 
 const parseCoordinates = (coordinates: string) => ({

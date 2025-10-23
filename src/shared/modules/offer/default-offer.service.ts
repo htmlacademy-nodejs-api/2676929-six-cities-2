@@ -1,5 +1,5 @@
 import { inject, injectable } from 'inversify';
-import { IOfferService } from './default-service.interface.js';
+import { IOfferService } from './offer-service.interface.js';
 import { Component } from '../../types/component.enum.js';
 import { ILogger } from '../../libs/logger/logger.interface.js';
 import { DocumentType, types } from '@typegoose/typegoose';

@@ -24,6 +24,36 @@ export class DefaultOfferService implements IOfferService {
   public async findById(
     offerId: string
   ): Promise<DocumentType<OfferEntity> | null> {
-    return this.offerModel.findById(offerId).exec();
+    return this.offerModel.findById(offerId).populate('userId').exec();
+  }
+
+  public async find(): Promise<DocumentType<OfferEntity>[]> {
+    return this.offerModel.find().populate('userId').exec();
+  }
+
+  public async updateById(
+    dto: CreateOfferDto,
+    offerId: string
+  ): Promise<DocumentType<OfferEntity> | null> {
+    return this.offerModel
+      .findByIdAndUpdate(offerId, dto, { new: true })
+      .populate('userId')
+      .exec();
+  }
+
+  public deleteById(
+    offerId: string
+  ): Promise<DocumentType<OfferEntity> | null> {
+    return this.offerModel.findByIdAndDelete(offerId).exec();
+  }
+
+  incCommentLength(offerId: string): Promise<DocumentType<OfferEntity> | null> {
+    return this.offerModel
+      .findByIdAndUpdate(offerId, {
+        $inc: {
+          commentsLength: 1,
+        },
+      })
+      .exec();
   }
 }

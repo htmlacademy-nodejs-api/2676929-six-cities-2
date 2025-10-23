@@ -5,4 +5,11 @@ import { OfferEntity } from './offer.entity.js';
 export interface IOfferService {
   create(dto: CreateOfferDto): Promise<DocumentType<OfferEntity>>;
   findById(offerId: string): Promise<DocumentType<OfferEntity> | null>;
+  find(): Promise<DocumentType<OfferEntity>[]>;
+  deleteById(offerId: string): Promise<DocumentType<OfferEntity> | null>;
+  updateById(
+    dto: CreateOfferDto,
+    offerId: string
+  ): Promise<DocumentType<OfferEntity> | null>;
+  incCommentLength(offerId: string): Promise<DocumentType<OfferEntity> | null>;
 }

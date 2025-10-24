@@ -9,7 +9,6 @@ export class CreateOfferDto {
   offerImages: string[];
   isPremium: boolean;
   isFavorite: boolean;
-  rating: number;
   type: OfferType;
   roomsAmount: number;
   guestsAmount: number;

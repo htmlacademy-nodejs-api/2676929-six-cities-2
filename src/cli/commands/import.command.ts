@@ -9,7 +9,7 @@ import { TSVFileReader } from '../../shared/libs/file-reader/tsv-file-reader.js'
 import { ConsoleLogger } from '../../shared/libs/logger/console.logger.js';
 import { ILogger } from '../../shared/libs/logger/logger.interface.js';
 import { DefaultOfferService } from '../../shared/modules/offer/default-offer.service.js';
-import { IOfferService } from '../../shared/modules/offer/default-service.interface.js';
+import { IOfferService } from '../../shared/modules/offer/offer-service.interface.js';
 import { OfferModel } from '../../shared/modules/offer/offer.entity.js';
 import { DefaultUserService } from '../../shared/modules/user/default-user.service.js';
 import { IUserService } from '../../shared/modules/user/user-service.interface.js';

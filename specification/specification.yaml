@@ -63,7 +63,7 @@ paths:
             schema:
               $ref: '#/components/schemas/offer'
         required: true
-  
+
     get:
       tags:
         - offers
@@ -76,7 +76,7 @@ paths:
         - offers
       summary: Получение детальной информации по предложению
       description: Получает детальную информацию по предложению
-    
+
     put:
       tags:
         - offers
@@ -103,8 +103,8 @@ paths:
       summary: Получение избранных офферов
       description: Получает список избранных офферов
 
-  /offers/favorite/${offerId}:
-    post:
+  /offers/favorite/${offerId}/status:
+    put:
       tags:
         - offers
       summary: Изменение статуса избранного у оффера
@@ -123,7 +123,7 @@ paths:
             schema:
               $ref: '#/components/schemas/comment'
         required: true
-  
+
     get:
       tags:
         - comments
@@ -170,13 +170,13 @@ components:
         title:
           type: string
           example: КВАРТИРАААААА
-        description: 
+        description:
           type: string
           example: Уютная студия в Люберцах
-        postDate: 
+        postDate:
           type: string
           example: 23.04.2025
-        city: 
+        city:
           type: string
           example: Paris
         previewImageLink:
@@ -184,7 +184,8 @@ components:
           example: image.jpg
         offerImages:
           type: array
-          example: [image.jpg, image.jpg, image.jpg, image.jpg, image.jpg, image.jpg]
+          example:
+            [image.jpg, image.jpg, image.jpg, image.jpg, image.jpg, image.jpg]
         isPremium:
           type: boolean
           example: true
@@ -206,7 +207,7 @@ components:
         price:
           type: number
           example: 10000
-        facilities: 
+        facilities:
           type: array
           example: [Breakfast, Towels]
         author:
@@ -224,7 +225,7 @@ components:
             profileImage:
               type: string
               example: avatar.jpg
-        commentsLength: 
+        commentsLength:
           type: number
           example: 30
         coordinates:
@@ -243,13 +244,13 @@ components:
     comment:
       type: object
       properties:
-        text: 
+        text:
           type: string
           example: Классная квартира, всем советую
         postDate:
           type: string
           example: 23.04.2024
-        rating: 
+        rating:
           type: number
           example: 5
         author:

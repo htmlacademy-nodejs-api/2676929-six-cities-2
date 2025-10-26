@@ -1,0 +1,270 @@
+openapi: 3.1.0
+info:
+  title: API для учебного проекта 'six cities'
+  license:
+    name: MIT
+    url: https://opensourece.org/licenses/MIT
+  version: 2.0.0
+tags:
+  - name: offers
+    description: Действия с объявлениями
+  - name: users
+    description: Действия с юзерами
+  - name: comments
+    description: Действия с комментариями
+
+paths:
+  /users/register:
+    post:
+      tags:
+        - users
+      summary: Регистрация пользователя
+      description: Регистрирует нового пользователя
+
+      requestBody:
+        description: Информация для создания нового пользователя
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createUser'
+        required: true
+
+  /users/login:
+    post:
+      tags:
+        - users
+      summary: Авторизация пользователя
+      description: Авторизует пользователя
+
+      requestBody:
+        description: Информация авторизации пользователя
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/loginUser'
+        required: true
+
+    get:
+      tags:
+        - users
+      summary: Проверка авторизации пользователя
+      description: Возвращает информация о статусе авторизации пользователя
+
+  /offers:
+    post:
+      tags:
+        - offers
+      summary: Создание оффера
+      description: Создаёт новый оффер
+      requestBody:
+        description: Информация для создания нового оффера
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offer'
+        required: true
+
+    get:
+      tags:
+        - offers
+      summary: Получение офферов
+      description: Получает список офферов
+
+  /offers/${offerId}:
+    get:
+      tags:
+        - offers
+      summary: Получение детальной информации по предложению
+      description: Получает детальную информацию по предложению
+
+    put:
+      tags:
+        - offers
+      summary: Редактирование оффера
+      description: Обновляет оффер
+      requestBody:
+        description: Информация для обновления оффера
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offer'
+        required: true
+
+    delete:
+      tags:
+        - offers
+      summary: Удаление оффера
+      description: Удаляет оффер
+
+  /offers/favorite:
+    get:
+      tags:
+        - offers
+      summary: Получение избранных офферов
+      description: Получает список избранных офферов
+
+  /offers/favorite/${offerId}/status:
+    put:
+      tags:
+        - offers
+      summary: Изменение статуса избранного у оффера
+      description: Изменяет статус избранного у оффера
+
+  /comments:
+    post:
+      tags:
+        - comments
+      summary: Создание комментария
+      description: Создаёт новый комментарий
+      requestBody:
+        description: Информация для создания нового комментария
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/comment'
+        required: true
+
+    get:
+      tags:
+        - comments
+      summary: Получение комментариев
+      description: Получает список комментариев
+
+components:
+  schemas:
+    createUser:
+      type: object
+      properties:
+        email:
+          type: string
+          example: user@test.ru
+        password:
+          type: string
+          example: 123456
+        name:
+          type: string
+          example: Finik
+        isPro:
+          type: boolean
+          example: false
+        favorites:
+          type: array
+          example: []
+        profileImage:
+          type: string
+          example: avatar.jpg
+
+    loginUser:
+      type: object
+      properties:
+        email:
+          type: string
+          example: user@test.ru
+        password:
+          type: string
+          example: 123456
+
+    offer:
+      type: object
+      properties:
+        title:
+          type: string
+          example: КВАРТИРАААААА
+        description:
+          type: string
+          example: Уютная студия в Люберцах
+        postDate:
+          type: string
+          example: 23.04.2025
+        city:
+          type: string
+          example: Paris
+        previewImageLink:
+          type: string
+          example: image.jpg
+        offerImages:
+          type: array
+          example:
+            [image.jpg, image.jpg, image.jpg, image.jpg, image.jpg, image.jpg]
+        isPremium:
+          type: boolean
+          example: true
+        isFavorite:
+          type: boolean
+          example: false
+        rating:
+          type: number
+          example: 4
+        type:
+          type: string
+          example: House
+        roomsAmount:
+          type: number
+          example: 2
+        guestsAmount:
+          type: number
+          example: 4
+        price:
+          type: number
+          example: 10000
+        facilities:
+          type: array
+          example: [Breakfast, Towels]
+        author:
+          type: object
+          properties:
+            email:
+              type: string
+              example: user@test.ru
+            name:
+              type: string
+              example: Finik
+            isPro:
+              type: boolean
+              example: false
+            profileImage:
+              type: string
+              example: avatar.jpg
+        commentsLength:
+          type: number
+          example: 30
+        coordinates:
+          type: object
+          properties:
+            latitude:
+              type: number
+              example: 48.85661
+            longitude:
+              type: number
+              example: 2.351499
+            name:
+              type: string
+              example: Paris
+
+    comment:
+      type: object
+      properties:
+        text:
+          type: string
+          example: Классная квартира, всем советую
+        postDate:
+          type: string
+          example: 23.04.2024
+        rating:
+          type: number
+          example: 5
+        author:
+          type: object
+          properties:
+            email:
+              type: string
+              example: user@test.ru
+            name:
+              type: string
+              example: Finik
+            isPro:
+              type: boolean
+              example: false
+            profileImage:
+              type: string
+              example: avatar.jpg

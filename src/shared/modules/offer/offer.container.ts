@@ -1,5 +1,5 @@
 import { Container } from 'inversify';
-import { IOfferService } from './default-service.interface.js';
+import { IOfferService } from './offer-service.interface.js';
 import { Component } from '../../types/component.enum.js';
 import { DefaultOfferService } from './default-offer.service.js';
 import { types } from '@typegoose/typegoose';
